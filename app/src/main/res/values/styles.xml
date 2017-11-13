@@ -1,0 +1,11 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#64c9ff</item> <!--浅蓝色-->
+        <!--改变通知栏颜色-->
+        <!--<item name="colorPrimaryDark">#00bafe</item> &lt;!&ndash;深蓝色&ndash;&gt;-->
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>

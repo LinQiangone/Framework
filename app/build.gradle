@@ -1,11 +1,8 @@
 apply plugin: 'com.android.application'
-//butterknife
-apply plugin: 'com.neenbedankt.android-apt'
-//lambda表达式
-apply plugin: 'me.tatarka.retrolambda'
+
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.xwsd.android.myframework"
         minSdkVersion 17
@@ -20,6 +17,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
     }
 
     compileOptions {
@@ -31,6 +29,14 @@ android {
     allprojects {
         repositories {
             maven { url "https://jitpack.io" }
+        }
+    }
+    //    multidex1.0.2无法添加依赖问题
+    allprojects {
+        repositories {
+            maven {
+                url 'https://maven.google.com'
+            }
         }
     }
 
@@ -52,14 +58,14 @@ repositories {
     maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
 }
 
+
+
 //butterknife
 buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
-    }
+
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -79,14 +85,14 @@ dependencies {
     //5.0新特性
     compile 'com.android.support:design:25.3.1'
     //butterknife
-    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    annotationProcessor  'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     // Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
     compile 'me.yokeyword:fragmentation:1.1.6'
     compile 'me.yokeyword:fragmentation-swipeback:1.1.6'
     //dagger
     compile 'com.google.dagger:dagger:2.12'
-    apt 'com.google.dagger:dagger-compiler:2.12'
+    annotationProcessor  'com.google.dagger:dagger-compiler:2.12'
     provided 'org.glassfish:javax.annotation:10.0-b28'
     //腾讯bugly
     compile 'com.tencent.bugly:crashreport:latest.release'

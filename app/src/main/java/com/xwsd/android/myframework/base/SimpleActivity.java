@@ -37,18 +37,15 @@ public abstract class SimpleActivity extends SupportActivity {
     protected void onDestroy() {
         super.onDestroy();
         AppManager.getInstance().finishActivity(this);
-        try {
+        if (unbinder != null)
             unbinder.unbind();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
-    protected void onViewCreated(){
+    protected void onViewCreated() {
 
     }
 
-    protected void setToolBar(Toolbar toolbar,int titleId, String title) {
+    protected void setToolBar(Toolbar toolbar, int titleId, String title) {
         //toolbar_back.setTitle(title);
         TextView textView = (TextView) findViewById(titleId);
         textView.setText(title);
@@ -65,7 +62,7 @@ public abstract class SimpleActivity extends SupportActivity {
     }
 
 
-
     protected abstract int getLayout();
+
     protected abstract void initEventAndData();
 }

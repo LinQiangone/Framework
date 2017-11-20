@@ -26,17 +26,17 @@ public abstract class SimpleFragment extends SupportFragment {
 
     @Nullable
     @Override
-    public void onAttach(Context context){
-        mActivity = (Activity)context;
+    public void onAttach(Context context) {
+        mActivity = (Activity) context;
         mContext = context;
         super.onAttach(context);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater,@Nullable ViewGroup viewGroup,@Nullable Bundle bSavedInstanceState){
-        mView = inflater.inflate(getLayout(),null);
-        unbinder = ButterKnife.bind(this,mView);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bSavedInstanceState) {
+        mView = inflater.inflate(getLayout(), null);
+        unbinder = ButterKnife.bind(this, mView);
         return mView;
     }
 
@@ -49,11 +49,9 @@ public abstract class SimpleFragment extends SupportFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        try {
+        if (unbinder != null)
             unbinder.unbind();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
@@ -63,6 +61,7 @@ public abstract class SimpleFragment extends SupportFragment {
     }
 
     protected abstract int getLayout();
+
     protected abstract void initEventAndData();
 
 

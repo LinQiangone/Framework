@@ -26,17 +26,17 @@ public abstract class SimpleLazyFragment extends SupportFragment {
 
     @Nullable
     @Override
-    public void onAttach(Context context){
-        mActivity = (Activity)context;
+    public void onAttach(Context context) {
+        mActivity = (Activity) context;
         mContext = context;
         super.onAttach(context);
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bSavedInstanceState){
-        mView = inflater.inflate(getLayout(),null);
-        unbinder = ButterKnife.bind(this,mView);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bSavedInstanceState) {
+        mView = inflater.inflate(getLayout(), null);
+        unbinder = ButterKnife.bind(this, mView);
         return mView;
     }
 
@@ -48,18 +48,16 @@ public abstract class SimpleLazyFragment extends SupportFragment {
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
-        unbinder = ButterKnife.bind(this,mView);
+        unbinder = ButterKnife.bind(this, mView);
         initEventAndData();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        try {
+        if (unbinder != null)
             unbinder.unbind();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
 
     }
 
@@ -70,5 +68,6 @@ public abstract class SimpleLazyFragment extends SupportFragment {
     }
 
     protected abstract int getLayout();
+
     protected abstract void initEventAndData();
 }

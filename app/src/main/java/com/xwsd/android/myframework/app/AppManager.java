@@ -35,7 +35,7 @@ public class AppManager {
      */
     public void addActivity(Activity activity) {
         if (stack == null) {
-            stack = new Stack<Activity>();
+            stack = new Stack();
         }
         stack.add(activity);
     }
@@ -47,17 +47,7 @@ public class AppManager {
         if (activity != null) {
             stack.remove(activity);
             activity.finish();
-            activity = null;
         }
-    }
-
-    /**
-     * 获得当前的activity
-     */
-    public Activity currentActivity() {
-        Activity activity = null;
-        if (!stack.empty()) activity = stack.lastElement();
-        return activity;
     }
 
 

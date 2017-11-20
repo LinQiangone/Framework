@@ -3,6 +3,7 @@ package com.xwsd.android.myframework.ui.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import com.xwsd.android.myframework.R;
+import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.base.BaseActivity;
 import com.xwsd.android.myframework.presenter.MainPresenter;
 import com.xwsd.android.myframework.ui.fragment.MainFragment;
@@ -44,5 +45,6 @@ public class MainActivity extends BaseActivity<MainPresenter> {
     @Override
     public void onBackPressedSupport() {
         super.onBackPressedSupport();
+        AppManager.getInstance().appExit(this);
     }
 }

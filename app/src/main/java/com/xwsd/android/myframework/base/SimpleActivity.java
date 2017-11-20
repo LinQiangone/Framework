@@ -53,12 +53,7 @@ public abstract class SimpleActivity extends SupportActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setDisplayShowHomeEnabled(false);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressedSupport();
-            }
-        });
+        toolbar.setNavigationOnClickListener(view -> onBackPressedSupport());
     }
 
 

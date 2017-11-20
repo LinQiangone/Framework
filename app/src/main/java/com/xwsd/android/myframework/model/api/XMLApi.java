@@ -5,8 +5,7 @@ package com.xwsd.android.myframework.model.api;
  */
 
 public interface XMLApi {
-    //mxl解析地址
-    String XML_HOST="http://localhost:8080/api/";
+
 
 }
 

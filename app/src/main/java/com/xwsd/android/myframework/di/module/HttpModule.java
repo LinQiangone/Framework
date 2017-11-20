@@ -29,7 +29,9 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
+
 import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 import okhttp3.Cache;
@@ -74,7 +76,8 @@ public class HttpModule {
     @Provides
     @CommonQualifier
     Retrofit provideCommonRetrofit(Retrofit.Builder builder, OkHttpClient client) {
-        return createCommonRetrofit(builder, client, MyApi.HOST);
+        return createCommonRetrofit(builder, client,
+                Constants.HOST);
     }
 
     @Singleton
@@ -82,37 +85,29 @@ public class HttpModule {
     @XMLQualifier
     Retrofit provideXMLRetrofit(Retrofit.Builder builder, OkHttpClient client) {
         //xml解析有时候地址可能不是服务器的地址，这里需要改变
-        return createXMLRetrofit(builder, client, XMLApi.XML_HOST);
+        return createXMLRetrofit(builder, client, Constants.XML_HOST);
     }
 
     @Singleton
     @Provides
     OkHttpClient provideClient(OkHttpClient.Builder builder) {
         if (BuildConfig.DEBUG == true) {
-            HttpLoggingInterceptor interceptorLog = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-                @Override
-                public void log(String message) {
-                    LogUtils.i("发送的数据", message);
-                }
-            });
+            HttpLoggingInterceptor interceptorLog = new HttpLoggingInterceptor(message -> LogUtils.i("发送的数据", message));
             interceptorLog.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(interceptorLog);
         }
         File cacheFile = new File(Constants.PATH_CACHE);
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);
-        Interceptor interceptor = new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                Request request = chain.request();
-                long timestamp = System.currentTimeMillis();
-                request = request.newBuilder()
-                        .removeHeader("User-Agent")
-                        .addHeader("User-Agent", Constants.APP_VERSION)
-                        .addHeader("timestamp", timestamp + "")
-                        .build();
-                Response response = chain.proceed(request);
-                return response;
-            }
+        Interceptor interceptor = chain -> {
+            Request request = chain.request();
+            long timestamp = System.currentTimeMillis();
+            request = request.newBuilder()
+                    .removeHeader("User-Agent")
+                    .addHeader("User-Agent", Constants.APP_VERSION)
+                    .addHeader("timestamp", timestamp + "")
+                    .build();
+            Response response = chain.proceed(request);
+            return response;
         };
 //                    request = request.newBuilder()
 //                            .removeHeader("User-Agent")

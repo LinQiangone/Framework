@@ -14,10 +14,6 @@ import retrofit2.http.POST;
  */
 
 public interface MyApi {
-    //接口域名
-    String HOST = "http://www.eqdd.com.cn/Api/";
-
-
 
     @POST("Banner/getBannerList")
     @FormUrlEncoded

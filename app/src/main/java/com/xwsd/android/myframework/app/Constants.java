@@ -8,6 +8,10 @@ import java.io.File;
  */
 
 public class Constants {
+    //接口域名
+    public static final String HOST = "http://www.eqdd.com.cn/Api/";
+    //mxl解析地址
+    public static final String XML_HOST="http://localhost:8080/api/";
     //首页
     public static final int HOME_FRAGMENT = 1;
     //第二个

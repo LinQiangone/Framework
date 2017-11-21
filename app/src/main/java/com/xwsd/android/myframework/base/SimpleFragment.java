@@ -51,7 +51,6 @@ public abstract class SimpleFragment extends SupportFragment {
         super.onDestroyView();
         if (unbinder != null)
             unbinder.unbind();
-
     }
 
     @Override

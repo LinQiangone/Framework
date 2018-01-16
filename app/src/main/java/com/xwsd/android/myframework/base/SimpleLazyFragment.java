@@ -70,4 +70,11 @@ public abstract class SimpleLazyFragment extends SupportFragment {
     protected abstract int getLayout();
 
     protected abstract void initEventAndData();
+
+    @Override
+    public boolean onBackPressedSupport() {
+        _mActivity.finish();
+        // 默认flase，继续向上传递,如果return true，则消费该事件，不再向上传递。
+        return super.onBackPressedSupport();
+    }
 }

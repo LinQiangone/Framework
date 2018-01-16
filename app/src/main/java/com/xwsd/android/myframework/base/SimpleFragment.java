@@ -63,5 +63,10 @@ public abstract class SimpleFragment extends SupportFragment {
 
     protected abstract void initEventAndData();
 
-
+    @Override
+    public boolean onBackPressedSupport() {
+        pop();
+        // 默认flase，继续向上传递,如果return true，则消费该事件，不再向上传递。
+        return true;
+    }
 }

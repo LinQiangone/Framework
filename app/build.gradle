@@ -58,8 +58,6 @@ repositories {
     maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
 }
 
-
-
 //butterknife
 buildscript {
     repositories {
@@ -85,14 +83,14 @@ dependencies {
     //5.0新特性
     compile 'com.android.support:design:25.3.1'
     //butterknife
-    annotationProcessor  'com.jakewharton:butterknife-compiler:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
     // Swipeback is based on fragmentation. Refer to SwipeBackActivity/Fragment for your Customized SupportActivity/Fragment
     compile 'me.yokeyword:fragmentation:1.1.6'
     compile 'me.yokeyword:fragmentation-swipeback:1.1.6'
     //dagger
     compile 'com.google.dagger:dagger:2.12'
-    annotationProcessor  'com.google.dagger:dagger-compiler:2.12'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.12'
     provided 'org.glassfish:javax.annotation:10.0-b28'
     //腾讯bugly
     compile 'com.tencent.bugly:crashreport:latest.release'
@@ -123,7 +121,7 @@ dependencies {
         exclude module: "support-v13"
     }
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.0.1"
-     //内存泄漏分析框架
+    //内存泄漏分析框架
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 

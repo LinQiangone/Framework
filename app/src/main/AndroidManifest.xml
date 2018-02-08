@@ -3,10 +3,10 @@
           package="com.xwsd.android.myframework">
     <!--网络权限-->
     <uses-permission android:name="android.permission.INTERNET"/>
-
+    <!--allowBackup软件安全性问题，如果true，可以调试的用户可以盗取用户相关数据-->
     <application
         android:name=".app.MyApp"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/fragment_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"

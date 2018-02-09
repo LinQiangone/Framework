@@ -51,7 +51,9 @@ public abstract class SimpleActivity extends SupportActivity {
             unbinder.unbind();
     }
 
-    protected abstract void onViewCreated();
+    protected void onViewCreated(){
+
+    }
 
 
     public LoadDialog showWaitDialog() {

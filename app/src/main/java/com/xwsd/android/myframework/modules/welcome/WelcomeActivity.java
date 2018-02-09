@@ -1,10 +1,8 @@
-package com.xwsd.android.myframework.ui.activity;
+package com.xwsd.android.myframework.modules.welcome;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.xwsd.android.myframework.R;
-import com.xwsd.android.myframework.base.BaseActivity;
 import com.xwsd.android.myframework.base.SimpleActivity;
 
 public class WelcomeActivity extends SimpleActivity {
@@ -14,4 +12,15 @@ public class WelcomeActivity extends SimpleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
     }
+
+
+    @Override
+    protected int getLayout() {
+        return 0;
+    }
+
+    @Override
+    protected void initEventAndData() {
+    }
+
 }

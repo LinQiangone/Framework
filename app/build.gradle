@@ -45,6 +45,26 @@ android {
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
     }
 
+    sourceSets {
+        main {
+            res.srcDirs =
+                    [
+                            'src/main/res',
+                            'src/main/res/modules',
+                            'src/main/res/modules/home',
+                            'src/main/res/modules/project',
+                            'src/main/res/modules/discover',
+                            'src/main/res/modules/myself',
+                            'src/main/res/modules/login',
+                            'src/main/res/modules/welcome',
+                            'src/main/res/modules/others'
+                    ]
+        }
+    }
+
+
+
+
 }
 
 //热修复

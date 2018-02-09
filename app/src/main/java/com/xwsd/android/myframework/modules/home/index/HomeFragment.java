@@ -1,22 +1,12 @@
-package com.xwsd.android.myframework.ui.fragment;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+package com.xwsd.android.myframework.modules.home.index;
 
 import com.xwsd.android.myframework.R;
-import com.xwsd.android.myframework.base.BaseFragment;
 import com.xwsd.android.myframework.base.BaseLazyFragment;
 import com.xwsd.android.myframework.contract.HomeContract;
 import com.xwsd.android.myframework.presenter.HomePresenter;
-import com.xwsd.android.myframework.utils.LogUtils;
+import com.xwsd.android.myframework.ui.fragment.MainFragment;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 /**
  * Created by qiang.lin on 2017/11/7.
@@ -42,7 +32,7 @@ public class HomeFragment extends BaseLazyFragment<HomePresenter> implements Hom
 
     @OnClick(R.id.tv_home)
     public void onViewClicked() {
-        ((MainFragment) getParentFragment()).start(new ImageViewFragment());
+
     }
 
 

@@ -1,7 +1,7 @@
-package com.xwsd.android.myframework.ui.activity;
+package com.xwsd.android.myframework.modules.welcome;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.xwsd.android.myframework.R;
 

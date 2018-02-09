@@ -1,12 +1,11 @@
-package com.xwsd.android.myframework.ui.fragment;
+package com.xwsd.android.myframework.modules.project.index;
 
 import android.widget.TextView;
+
 import com.xwsd.android.myframework.R;
-import com.xwsd.android.myframework.base.BaseFragment;
 import com.xwsd.android.myframework.base.BaseLazyFragment;
 import com.xwsd.android.myframework.contract.SecondContract;
 import com.xwsd.android.myframework.presenter.SecondPresenter;
-import com.xwsd.android.myframework.utils.LogUtils;
 
 import butterknife.BindView;
 
@@ -14,9 +13,8 @@ import butterknife.BindView;
  * Created by qiang.lin on 2017/11/8.
  */
 
-public class SecondFragment extends BaseLazyFragment<SecondPresenter> implements SecondContract.View {
-    @BindView(R.id.toolbar_title)
-    TextView toolbarTitle;
+public class ProjectFragment extends BaseLazyFragment<SecondPresenter> implements SecondContract.View {
+
 
 
     @Override
@@ -26,7 +24,7 @@ public class SecondFragment extends BaseLazyFragment<SecondPresenter> implements
 
     @Override
     protected void initEventAndData() {
-        toolbarTitle.setText("第二个");
+
 
     }
 

@@ -4,12 +4,11 @@ import android.app.Activity;
 
 import com.xwsd.android.myframework.di.module.FragmentModule;
 import com.xwsd.android.myframework.di.scope.FragmentScope;
-import com.xwsd.android.myframework.ui.fragment.HomeFragment;
-import com.xwsd.android.myframework.ui.fragment.ImageViewFragment;
-import com.xwsd.android.myframework.ui.fragment.MainFragment;
-import com.xwsd.android.myframework.ui.fragment.MyCenterFragment;
-import com.xwsd.android.myframework.ui.fragment.SecondFragment;
-import com.xwsd.android.myframework.ui.fragment.ThirdFragment;
+import com.xwsd.android.myframework.modules.MainFragment;
+import com.xwsd.android.myframework.modules.discover.index.DiscoverFragment;
+import com.xwsd.android.myframework.modules.home.index.HomeFragment;
+import com.xwsd.android.myframework.modules.myself.index.MyselfFragment;
+import com.xwsd.android.myframework.modules.project.index.ProjectFragment;
 
 import dagger.Component;
 
@@ -25,8 +24,8 @@ public interface FragmentComponent {
 
     void inject(MainFragment fragment);
     void inject(HomeFragment fragment);
-    void inject(MyCenterFragment fragment);
-    void inject(SecondFragment fragment);
-    void inject(ThirdFragment fragment);
-    void inject(ImageViewFragment fragment);
+    void inject(MyselfFragment fragment);
+    void inject(ProjectFragment fragment);
+    void inject(DiscoverFragment fragment);
+
 }

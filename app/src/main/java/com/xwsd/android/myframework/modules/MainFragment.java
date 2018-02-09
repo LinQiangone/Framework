@@ -1,4 +1,4 @@
-package com.xwsd.android.myframework.ui.fragment;
+package com.xwsd.android.myframework.modules;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,9 +11,12 @@ import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.Constants;
 import com.xwsd.android.myframework.base.BaseFragment;
 import com.xwsd.android.myframework.contract.MainFragmentContract;
+import com.xwsd.android.myframework.modules.discover.index.DiscoverFragment;
+import com.xwsd.android.myframework.modules.home.index.HomeFragment;
+import com.xwsd.android.myframework.modules.myself.index.MyselfFragment;
+import com.xwsd.android.myframework.modules.project.index.ProjectFragment;
 import com.xwsd.android.myframework.presenter.MainFragmentPresenter;
 import com.xwsd.android.myframework.utils.BottomNavigationViewUtils;
-import com.xwsd.android.myframework.utils.LogUtils;
 
 import butterknife.BindView;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -25,16 +28,15 @@ import me.yokeyword.fragmentation.SupportFragment;
 
 public class MainFragment extends BaseFragment<MainFragmentPresenter> implements MainFragmentContract.View, BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private MyCenterFragment myCenterFragment;
+    private MyselfFragment myselfFragment;
     private HomeFragment homeFragment;
-    private SecondFragment secondFragment;
-    private ThirdFragment thirdFragment;
+    private ProjectFragment projectFragment;
+    private DiscoverFragment discoverFragment;
 
     @BindView(R.id.content)
     FrameLayout content;
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottomNavigation;
-
     private int hideFragment = 0;
     private int showFragment = 0;
 
@@ -68,15 +70,15 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter> implements
         SupportFragment firstFragment = findChildFragment(HomeFragment.class);
         if (firstFragment == null) {
             homeFragment = new HomeFragment();
-            myCenterFragment = new MyCenterFragment();
-            secondFragment=new SecondFragment();
-            thirdFragment=new ThirdFragment();
-            loadMultipleRootFragment(R.id.content, 0, homeFragment,secondFragment,thirdFragment, myCenterFragment);
+            myselfFragment = new MyselfFragment();
+            projectFragment=new ProjectFragment();
+            discoverFragment=new DiscoverFragment();
+            loadMultipleRootFragment(R.id.content, 0, homeFragment,projectFragment,discoverFragment, myselfFragment);
         } else {
             homeFragment = (HomeFragment) firstFragment;
-            secondFragment=findChildFragment(SecondFragment.class);
-            thirdFragment=findChildFragment(ThirdFragment.class);
-            myCenterFragment = findChildFragment(MyCenterFragment.class);
+            projectFragment=findChildFragment(ProjectFragment.class);
+            discoverFragment=findChildFragment(DiscoverFragment.class);
+            myselfFragment = findChildFragment(MyselfFragment.class);
         }
 
     }
@@ -86,11 +88,11 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter> implements
             case Constants.HOME_FRAGMENT:
                 return homeFragment;
             case Constants.SECOND_FRAGMENT:
-                return secondFragment;
+                return projectFragment;
             case Constants.THIRD_FRAGMENT:
-                return thirdFragment;
+                return discoverFragment;
             case Constants.MY_CENTER_FRAGMENT:
-                return myCenterFragment;
+                return myselfFragment;
         }
         return homeFragment;
     }

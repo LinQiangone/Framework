@@ -5,7 +5,7 @@ import android.app.Activity;
 
 import com.xwsd.android.myframework.di.module.ActivityModule;
 import com.xwsd.android.myframework.di.scope.ActivityScope;
-import com.xwsd.android.myframework.ui.activity.MainActivity;
+import com.xwsd.android.myframework.modules.MainActivity;
 
 import dagger.Component;
 

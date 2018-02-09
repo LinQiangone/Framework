@@ -1,4 +1,4 @@
-package com.xwsd.android.myframework.presenter;
+package com.xwsd.android.myframework.modules.home.index;
 
 import com.xwsd.android.myframework.base.RxPresenter;
 import com.xwsd.android.myframework.contract.MainContract;

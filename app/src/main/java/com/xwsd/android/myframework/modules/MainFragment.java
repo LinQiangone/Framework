@@ -15,7 +15,6 @@ import com.xwsd.android.myframework.modules.discover.index.DiscoverFragment;
 import com.xwsd.android.myframework.modules.home.index.HomeFragment;
 import com.xwsd.android.myframework.modules.myself.index.MyselfFragment;
 import com.xwsd.android.myframework.modules.project.index.ProjectFragment;
-import com.xwsd.android.myframework.presenter.MainFragmentPresenter;
 import com.xwsd.android.myframework.utils.BottomNavigationViewUtils;
 
 import butterknife.BindView;

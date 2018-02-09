@@ -6,8 +6,7 @@ import android.support.annotation.Nullable;
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.base.BaseActivity;
-import com.xwsd.android.myframework.presenter.MainPresenter;
-import com.xwsd.android.myframework.ui.fragment.MainFragment;
+
 
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;

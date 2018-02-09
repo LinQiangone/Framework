@@ -1,13 +1,8 @@
 package com.xwsd.android.myframework.modules.myself.index;
 
-import android.widget.TextView;
-
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.base.BaseLazyFragment;
 import com.xwsd.android.myframework.contract.MyCenterContract;
-import com.xwsd.android.myframework.presenter.MyCenterPresenter;
-
-import butterknife.BindView;
 
 /**
  * Created by qiang.lin on 2017/9/11.

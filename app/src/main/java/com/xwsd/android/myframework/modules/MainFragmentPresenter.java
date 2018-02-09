@@ -1,13 +1,10 @@
-package com.xwsd.android.myframework.presenter;
+package com.xwsd.android.myframework.modules;
 
-import com.google.gson.JsonObject;
 import com.xwsd.android.myframework.base.RxPresenter;
 import com.xwsd.android.myframework.contract.MainFragmentContract;
 import com.xwsd.android.myframework.model.DataManager;
 
 import javax.inject.Inject;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
 
 /**
  * Created by qiang.lin on 2017/11/7.

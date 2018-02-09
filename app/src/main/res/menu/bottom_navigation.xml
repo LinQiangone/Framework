@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home_fragment"
-        android:icon="@mipmap/account_unselected"
-        android:title="首页" />
+        android:icon="@drawable/tab_home_btn"
+        android:title="@string/home"/>
     <item
         android:id="@+id/second_fragment"
-        android:icon="@mipmap/account_unselected"
-        android:title="第二" />
+        android:icon="@drawable/tab_project_btn"
+        android:title="@string/project"/>
     <item
         android:id="@+id/third_fragment"
-        android:icon="@mipmap/account_unselected"
-        android:title="第三" />
+        android:icon="@drawable/tab_account_btn"
+        android:title="@string/discover"/>
     <item
         android:id="@+id/my_center_fragment"
-        android:icon="@mipmap/account_unselected"
-        android:title="我的" />
+        android:icon="@drawable/tab_news_btn"
+        android:title="@string/myself"/>
 </menu>

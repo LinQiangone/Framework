@@ -1,14 +1,20 @@
 package com.xwsd.android.myframework.base;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.app.MyApp;
+import com.xwsd.android.myframework.model.preferences.PreferencesHelperImpl;
+import com.xwsd.android.myframework.view.loading.LoadDialog;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -21,6 +27,10 @@ import me.yokeyword.fragmentation.SupportActivity;
 public abstract class SimpleActivity extends SupportActivity {
     private Unbinder unbinder;
     protected Activity mContext;
+    private LoadDialog loadDialog;
+
+    @Inject
+    protected PreferencesHelperImpl preferencesHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,21 +51,31 @@ public abstract class SimpleActivity extends SupportActivity {
             unbinder.unbind();
     }
 
-    protected void onViewCreated() {
+    protected abstract void onViewCreated();
 
+
+    public LoadDialog showWaitDialog() {
+        if (loadDialog == null) {
+            loadDialog = new LoadDialog(this);
+
+        }
+        if (loadDialog != null) {
+            loadDialog.setMessage(getString(R.string.loading));
+            loadDialog.show();
+        }
+        return loadDialog;
     }
 
-    protected void setToolBar(Toolbar toolbar, int titleId, String title) {
-        //toolbar_back.setTitle(title);
-        TextView textView = (TextView) findViewById(titleId);
-        textView.setText(title);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setDisplayShowHomeEnabled(false);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        toolbar.setNavigationOnClickListener(view -> onBackPressedSupport());
+    public void hideWaitDialog() {
+        if ( loadDialog != null) {
+            try {
+                loadDialog.dismiss();
+                loadDialog = null;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
-
 
     protected abstract int getLayout();
 

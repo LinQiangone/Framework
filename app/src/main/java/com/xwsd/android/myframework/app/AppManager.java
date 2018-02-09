@@ -3,6 +3,7 @@ package com.xwsd.android.myframework.app;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import java.util.Stack;
 
@@ -61,6 +62,19 @@ public class AppManager {
             }
         }
         stack.clear();
+    }
+
+    /**
+     * 结束指定 Activity
+     *
+     * @param clz Activity 类
+     */
+    public void finishActivity(@NonNull final Class<?> clz) {
+        for (Activity activity : stack) {
+            if (activity.getClass().equals(clz)) {
+                activity.finish();
+            }
+        }
     }
 
     /**

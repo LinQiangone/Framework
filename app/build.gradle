@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
@@ -124,6 +125,7 @@ dependencies {
     //内存泄漏分析框架
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-
+    //tab控件
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 
 }

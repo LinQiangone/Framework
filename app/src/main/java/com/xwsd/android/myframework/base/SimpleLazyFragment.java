@@ -8,7 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.MyApp;
+import com.xwsd.android.myframework.model.preferences.PreferencesHelperImpl;
+import com.xwsd.android.myframework.view.loading.LoadDialog;
+
+import javax.inject.Inject;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -23,7 +28,9 @@ public abstract class SimpleLazyFragment extends SupportFragment {
     protected Activity mActivity;
     protected Context mContext;
     protected Unbinder unbinder;
-
+    private LoadDialog loadDialog;
+    @Inject
+    protected PreferencesHelperImpl preferencesHelper;
     @Nullable
     @Override
     public void onAttach(Context context) {
@@ -48,7 +55,6 @@ public abstract class SimpleLazyFragment extends SupportFragment {
     @Override
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
-        unbinder = ButterKnife.bind(this, mView);
         initEventAndData();
     }
 
@@ -57,14 +63,12 @@ public abstract class SimpleLazyFragment extends SupportFragment {
         super.onDestroyView();
         if (unbinder != null)
             unbinder.unbind();
-
-
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        MyApp.getRefWatcher(mContext).watch(this);
+//        MyApp.getRefWatcher(mContext).watch(this);
     }
 
     protected abstract int getLayout();
@@ -76,5 +80,29 @@ public abstract class SimpleLazyFragment extends SupportFragment {
         _mActivity.finish();
         // 默认flase，继续向上传递,如果return true，则消费该事件，不再向上传递。
         return super.onBackPressedSupport();
+    }
+
+
+    public LoadDialog showWaitDialog() {
+        if (loadDialog == null) {
+            loadDialog = new LoadDialog(getActivity());
+
+        }
+        if (loadDialog != null) {
+            loadDialog.setMessage(getString(R.string.loading));
+            loadDialog.show();
+        }
+        return loadDialog;
+    }
+
+    public void hideWaitDialog() {
+        if ( loadDialog != null) {
+            try {
+                loadDialog.dismiss();
+                loadDialog = null;
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

@@ -25,11 +25,6 @@ import butterknife.Unbinder;
 
 public class HomeFragment extends BaseLazyFragment<HomePresenter> implements HomeContract.View {
 
-    @BindView(R.id.toolbar_title)
-    TextView toolbarTitle;
-
-
-
     @Override
     protected void initInject() {
         getFragmentComponent().inject(this);
@@ -42,12 +37,13 @@ public class HomeFragment extends BaseLazyFragment<HomePresenter> implements Hom
 
     @Override
     protected void initEventAndData() {
-        toolbarTitle.setText("首页");
-        preferencesHelper.setToken("222222");
+
     }
 
     @OnClick(R.id.tv_home)
     public void onViewClicked() {
         ((MainFragment) getParentFragment()).start(new ImageViewFragment());
     }
+
+
 }

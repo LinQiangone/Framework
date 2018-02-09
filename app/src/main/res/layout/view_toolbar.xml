@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:tl="http://schemas.android.com/apk/res-auto"
+                                   android:id="@+id/toolbar"
+                                   style="@style/ClubToolbar"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="@dimen/DIMEN_44"
+                                   android:background="@android:color/white"
+                                   android:minHeight="?attr/actionBarSize">
+
+    <LinearLayout
+        android:id="@+id/navbar_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:orientation="horizontal"
+        android:padding="@dimen/DIMEN_10">
+
+        <ImageView
+            android:id="@+id/navbar_left_image"
+            android:layout_width="@dimen/DIMEN_25"
+            android:layout_height="@dimen/DIMEN_25"
+            android:layout_gravity="center"/>
+
+
+
+        <TextView
+            android:id="@+id/navbar_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/DIMEN_10"
+            android:textSize="@dimen/TEXT_L"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/navbar_centre"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textSize="@dimen/TEXT_LL"
+        android:transitionName="shared_title"/>
+
+    <ImageView
+        android:id="@+id/navbar_centre_ima"
+        android:layout_width="@dimen/DIMEN_100"
+        android:layout_height="@dimen/DIMEN_13"
+        android:layout_gravity="center"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textSize="@dimen/TEXT_LL"
+        android:transitionName="shared_title"
+        android:visibility="gone"/>
+
+    <com.flyco.tablayout.SlidingTabLayout
+            android:id="@+id/tl"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:minWidth="@dimen/DIMEN_100"
+            android:background="@android:color/white"
+            android:layout_gravity="center"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            tl:tl_textsize="@dimen/TEXT_LL"
+            tl:tl_textUnselectColor="@android:color/white"
+            tl:tl_textSelectColor="@color/colorPrimary"
+            tl:tl_tab_space_equal="true"
+            tl:tl_tab_padding="@dimen/DIMEN_13"
+            tl:tl_indicator_color="@color/colorPrimary"
+            tl:tl_indicator_corner_radius="@dimen/DIMEN_1"
+            tl:tl_indicator_height="@dimen/DIMEN_2"
+            tl:tl_indicator_width="@dimen/DIMEN_15"
+            android:visibility="gone"/>
+    
+
+    <LinearLayout
+        android:id="@+id/navbar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/navbar_right_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="@dimen/DIMEN_12"
+            android:textSize="@dimen/TEXT_L"/>
+
+        <ImageView
+            android:id="@+id/navbar_right_image"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/DIMEN_25"
+            android:layout_height="@dimen/DIMEN_25"
+            android:layout_marginRight="@dimen/DIMEN_12"
+            android:visibility="gone"
+          />
+
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>

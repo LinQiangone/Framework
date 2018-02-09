@@ -4,8 +4,10 @@ package com.xwsd.android.myframework.app;
  * Created by qiang.lin on 2017/10/20.
  */
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
 import com.squareup.leakcanary.LeakCanary;
@@ -15,6 +17,8 @@ import com.xwsd.android.myframework.di.component.DaggerAppComponent;
 import com.xwsd.android.myframework.di.module.AppModule;
 import com.xwsd.android.myframework.utils.Utils;
 
+import java.util.Stack;
+
 /**
  * Created by qiang.lin on 2017/11/5.
  */
@@ -23,6 +27,7 @@ public class MyApp extends Application {
     private static MyApp myApp;
     public static AppComponent appComponent;
     private RefWatcher refWatcher;
+    private static Stack<Activity> stack;
     public static synchronized MyApp getInstance(){
         return myApp;
     }
@@ -49,6 +54,10 @@ public class MyApp extends Application {
         return appComponent;
     }
 
+    /**
+     *
+     * @return
+     */
     protected RefWatcher setupLeakCanary() {
         if (LeakCanary.isInAnalyzerProcess(this)) {
             refWatcher= RefWatcher.DISABLED;
@@ -62,5 +71,11 @@ public class MyApp extends Application {
         myApp = (MyApp) context.getApplicationContext();
         return myApp.refWatcher;
     }
+
+
+
+
+
+
 }
 

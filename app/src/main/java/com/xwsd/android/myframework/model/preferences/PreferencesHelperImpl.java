@@ -21,7 +21,7 @@ public class PreferencesHelperImpl implements PreferencesHelper {
 //    private static final int DEFAULT_CURRENT_ITEM = Constants.TYPE_MAIN_PAGE;
 
     @Inject
-    public PreferencesHelperImpl(){
+    public PreferencesHelperImpl() {
         mSPrefs = MyApp.getInstance().getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
@@ -33,6 +33,16 @@ public class PreferencesHelperImpl implements PreferencesHelper {
     @Override
     public String getToken() {
         return mSPrefs.getString(Constants.TOKEN, "");
+    }
+
+    @Override
+    public boolean getIsFirst() {
+        return mSPrefs.getBoolean(Constants.IS_FIRST, true);
+    }
+
+    @Override
+    public void setIsFirst(boolean flag) {
+        mSPrefs.edit().putBoolean(Constants.IS_FIRST, flag).apply();
     }
 //
 //    @Override

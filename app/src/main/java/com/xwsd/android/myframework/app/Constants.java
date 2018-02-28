@@ -25,6 +25,7 @@ public class Constants {
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
     //版本号
     public static final String APP_VERSION = "1.0";
-
     public static final String TOKEN="token";
+    public static final String IS_FIRST="isFirst";
+
 }

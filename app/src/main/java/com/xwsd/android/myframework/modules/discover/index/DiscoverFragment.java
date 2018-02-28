@@ -13,7 +13,7 @@ public class DiscoverFragment extends BaseLazyFragment<DiscoverPresenter> implem
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_third;
+        return R.layout.fragment_discover;
     }
 
     @Override

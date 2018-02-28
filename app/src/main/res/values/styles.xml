@@ -6,6 +6,7 @@
         <item name="colorPrimary">#64c9ff</item> <!--浅蓝色-->
         <!--改变通知栏颜色-->
         <!--<item name="colorPrimaryDark">#00bafe</item> &lt;!&ndash;深蓝色&ndash;&gt;-->
+        <!--沉浸式-->
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="colorAccent">@color/colorAccent</item>

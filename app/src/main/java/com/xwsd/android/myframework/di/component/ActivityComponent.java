@@ -6,6 +6,7 @@ import android.app.Activity;
 import com.xwsd.android.myframework.di.module.ActivityModule;
 import com.xwsd.android.myframework.di.scope.ActivityScope;
 import com.xwsd.android.myframework.modules.MainActivity;
+import com.xwsd.android.myframework.modules.welcome.SplashActivity;
 
 import dagger.Component;
 
@@ -20,5 +21,6 @@ public interface ActivityComponent {
     Activity getActivity();
 
     void inject(MainActivity mainActivity);
+    void inject(SplashActivity splashActivity);
 
 }

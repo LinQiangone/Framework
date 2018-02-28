@@ -10,5 +10,9 @@ public interface PreferencesHelper {
 
     String getToken();
 
+    boolean getIsFirst();
+
+    void setIsFirst(boolean flag);
+
 
 }

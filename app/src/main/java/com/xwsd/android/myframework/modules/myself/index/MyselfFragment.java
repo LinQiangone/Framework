@@ -20,7 +20,7 @@ public class MyselfFragment extends BaseLazyFragment<MyselfPresenter> implements
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_my_center;
+        return R.layout.fragment_myself;
     }
 
     @Override

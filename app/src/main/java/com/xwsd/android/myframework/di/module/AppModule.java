@@ -6,6 +6,8 @@ import com.xwsd.android.myframework.model.http.HttpHelper;
 import com.xwsd.android.myframework.model.http.RetrofitHelper;
 import com.xwsd.android.myframework.model.preferences.PreferencesHelper;
 import com.xwsd.android.myframework.model.preferences.PreferencesHelperImpl;
+import com.xwsd.android.myframework.model.schedulers.BaseSchedulerProvider;
+import com.xwsd.android.myframework.model.schedulers.SchedulerProvider;
 
 import javax.inject.Singleton;
 
@@ -47,5 +49,11 @@ public class AppModule {
     @Singleton
     DataManager provideDataManager(HttpHelper httpHelper, PreferencesHelper preferencesHelper){
         return new DataManager(httpHelper,preferencesHelper);
+    }
+
+    @Provides
+    @Singleton
+    BaseSchedulerProvider provideScheduler(SchedulerProvider schedulerProvider){
+        return schedulerProvider;
     }
 }

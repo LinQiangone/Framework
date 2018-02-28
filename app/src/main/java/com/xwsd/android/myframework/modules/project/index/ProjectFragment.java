@@ -13,7 +13,7 @@ public class ProjectFragment extends BaseLazyFragment<ProjectPresenter> implemen
 
     @Override
     protected int getLayout() {
-        return R.layout.fragment_second;
+        return R.layout.fragment_project;
     }
 
     @Override

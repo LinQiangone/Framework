@@ -2,7 +2,6 @@ package com.xwsd.android.myframework.modules.discover.index;
 
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.base.BaseLazyFragment;
-import com.xwsd.android.myframework.contract.ThirdContract;
 
 /**
  * Created by qiang.lin on 2017/11/8.

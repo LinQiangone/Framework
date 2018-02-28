@@ -10,7 +10,6 @@ import android.widget.FrameLayout;
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.Constants;
 import com.xwsd.android.myframework.base.BaseFragment;
-import com.xwsd.android.myframework.contract.MainFragmentContract;
 import com.xwsd.android.myframework.modules.discover.index.DiscoverFragment;
 import com.xwsd.android.myframework.modules.home.index.HomeFragment;
 import com.xwsd.android.myframework.modules.myself.index.MyselfFragment;

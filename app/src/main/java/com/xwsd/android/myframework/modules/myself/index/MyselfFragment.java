@@ -2,7 +2,7 @@ package com.xwsd.android.myframework.modules.myself.index;
 
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.base.BaseLazyFragment;
-import com.xwsd.android.myframework.contract.MyCenterContract;
+
 
 /**
  * Created by qiang.lin on 2017/9/11.

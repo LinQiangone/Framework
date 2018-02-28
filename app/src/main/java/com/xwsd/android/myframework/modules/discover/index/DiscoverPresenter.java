@@ -1,7 +1,6 @@
 package com.xwsd.android.myframework.modules.discover.index;
 
 import com.xwsd.android.myframework.base.RxPresenter;
-import com.xwsd.android.myframework.contract.ThirdContract;
 import com.xwsd.android.myframework.model.DataManager;
 
 import javax.inject.Inject;

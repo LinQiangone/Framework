@@ -8,7 +8,7 @@ import com.xwsd.android.myframework.contract.ThirdContract;
  * Created by qiang.lin on 2017/11/8.
  */
 
-public class DiscoverFragment extends BaseLazyFragment<DiscoverPresenter> implements ThirdContract.View {
+public class DiscoverFragment extends BaseLazyFragment<DiscoverPresenter> implements DiscoverContract.View {
 
 
 

@@ -9,7 +9,7 @@ import com.xwsd.android.myframework.contract.MyCenterContract;
  * 个人中心
  */
 
-public class MyselfFragment extends BaseLazyFragment<MyCenterPresenter> implements MyCenterContract.View {
+public class MyselfFragment extends BaseLazyFragment<MyselfPresenter> implements MyselfContract.View {
 
 
 

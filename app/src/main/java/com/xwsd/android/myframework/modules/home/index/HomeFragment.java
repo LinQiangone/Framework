@@ -2,7 +2,6 @@ package com.xwsd.android.myframework.modules.home.index;
 
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.base.BaseLazyFragment;
-import com.xwsd.android.myframework.contract.HomeContract;
 
 import butterknife.OnClick;
 

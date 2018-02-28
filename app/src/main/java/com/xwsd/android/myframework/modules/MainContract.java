@@ -1,13 +1,12 @@
-package com.xwsd.android.myframework.contract;
+package com.xwsd.android.myframework.modules;
 
 import com.xwsd.android.myframework.base.BasePresenter;
 import com.xwsd.android.myframework.base.BaseView;
-
 /**
- * Created by qiang.lin on 2017/11/8.
+ * Created by qiang.lin on 2018/2/28.
  */
 
-public interface SecondContract {
+public interface MainContract {
     interface View extends BaseView {
 
     }

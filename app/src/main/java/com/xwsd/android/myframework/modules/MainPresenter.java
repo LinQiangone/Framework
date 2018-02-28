@@ -1,7 +1,6 @@
 package com.xwsd.android.myframework.modules;
 
 import com.xwsd.android.myframework.base.RxPresenter;
-import com.xwsd.android.myframework.contract.MainContract;
 import com.xwsd.android.myframework.model.DataManager;
 
 import javax.inject.Inject;
@@ -12,14 +11,12 @@ import javax.inject.Inject;
  */
 
 public class MainPresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter {
-   private DataManager dataManager;
+    private DataManager dataManager;
 
-   @Inject
+    @Inject
     public MainPresenter(DataManager dataManager) {
-        this.dataManager=dataManager;
+        this.dataManager = dataManager;
     }
-
-
 
 
 }

@@ -10,7 +10,7 @@ import javax.inject.Inject;
  * Created by qiang.lin on 2017/11/8.
  */
 
-public class DiscoverPresenter extends RxPresenter<ThirdContract.View> implements ThirdContract.Presenter  {
+public class DiscoverPresenter extends RxPresenter<DiscoverContract.View> implements DiscoverContract.Presenter  {
     private DataManager dataManager;
 
     @Inject

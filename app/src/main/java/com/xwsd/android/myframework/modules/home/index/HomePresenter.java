@@ -11,7 +11,7 @@ import javax.inject.Inject;
  *
  */
 
-public class HomePresenter extends RxPresenter<MainContract.View> implements MainContract.Presenter{
+public class HomePresenter extends RxPresenter<HomeContract.View> implements HomeContract.Presenter{
     private DataManager dataManager;
     @Inject
     public HomePresenter(DataManager dataManager) {

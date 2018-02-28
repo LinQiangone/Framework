@@ -9,6 +9,7 @@ import com.xwsd.android.myframework.modules.discover.index.DiscoverFragment;
 import com.xwsd.android.myframework.modules.home.index.HomeFragment;
 import com.xwsd.android.myframework.modules.myself.index.MyselfFragment;
 import com.xwsd.android.myframework.modules.project.index.ProjectFragment;
+import com.xwsd.android.myframework.modules.project.projectdetail.ProjectDetailFragment;
 
 import dagger.Component;
 
@@ -22,10 +23,35 @@ import dagger.Component;
 public interface FragmentComponent {
     Activity getActivity();
 
+    /**
+     * 主页
+     * @param fragment
+     */
     void inject(MainFragment fragment);
-    void inject(HomeFragment fragment);
-    void inject(MyselfFragment fragment);
-    void inject(ProjectFragment fragment);
-    void inject(DiscoverFragment fragment);
 
+    /**
+     * 首页
+     * @param fragment
+     */
+    void inject(HomeFragment fragment);
+    /**
+     * 我的
+     * @param fragment
+     */
+    void inject(MyselfFragment fragment);
+    /**
+     * 项目
+     * @param fragment
+     */
+    void inject(ProjectFragment fragment);
+    /**
+     * 发现
+     * @param fragment
+     */
+    void inject(DiscoverFragment fragment);
+    /**
+     * 项目详情
+     * @param fragment
+     */
+    void inject(ProjectDetailFragment fragment);
 }

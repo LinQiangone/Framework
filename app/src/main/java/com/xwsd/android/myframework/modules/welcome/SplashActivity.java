@@ -1,14 +1,9 @@
 package com.xwsd.android.myframework.modules.welcome;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.animation.AnimationUtils;
-
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.base.BaseActivity;
-import com.xwsd.android.myframework.base.BasePresenter;
 import com.xwsd.android.myframework.model.schedulers.SchedulerProvider;
 import com.xwsd.android.myframework.modules.MainActivity;
 import com.xwsd.android.myframework.modules.MainPresenter;
@@ -27,7 +22,6 @@ import io.reactivex.Flowable;
 public class SplashActivity extends BaseActivity<MainPresenter> {
     @Inject
     SchedulerProvider schedulerProvider;
-
 
     @Override
     protected int getLayout() {
@@ -51,7 +45,6 @@ public class SplashActivity extends BaseActivity<MainPresenter> {
             AppManager.getInstance().finishActivity(this);
         });
     }
-
 
     @Override
     protected void initInject() {

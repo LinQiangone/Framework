@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xwsd.android.myframework.R;
+import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.app.MyApp;
 import com.xwsd.android.myframework.model.preferences.PreferencesHelperImpl;
 import com.xwsd.android.myframework.view.loading.LoadDialog;
@@ -77,7 +78,7 @@ public abstract class SimpleLazyFragment extends SupportFragment {
 
     @Override
     public boolean onBackPressedSupport() {
-        _mActivity.finish();
+        AppManager.getInstance().finishActivity(mActivity);
         // 默认flase，继续向上传递,如果return true，则消费该事件，不再向上传递。
         return super.onBackPressedSupport();
     }

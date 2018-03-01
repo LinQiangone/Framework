@@ -27,10 +27,7 @@ public class RetrofitHelper implements HttpHelper{
        this.xmlApi=xmlApi;
     }
 
-    @Override
-    public Flowable<JsonObject> getBannerList(String token) {
-        return myApi.getBannerList(token);
-    }
+
 
 
 }

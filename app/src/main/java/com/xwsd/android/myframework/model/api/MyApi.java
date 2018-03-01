@@ -15,8 +15,5 @@ import retrofit2.http.POST;
 
 public interface MyApi {
 
-    @POST("Banner/getBannerList")
-    @FormUrlEncoded
-    Flowable<JsonObject> getBannerList(@Field("token") String  token);
 
 }

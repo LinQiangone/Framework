@@ -4,12 +4,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
-
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.base.BaseActivity;
-
-
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 

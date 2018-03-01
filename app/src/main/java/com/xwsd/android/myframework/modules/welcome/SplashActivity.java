@@ -1,18 +1,14 @@
 package com.xwsd.android.myframework.modules.welcome;
 
 import android.content.Intent;
-
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.base.BaseActivity;
 import com.xwsd.android.myframework.model.schedulers.SchedulerProvider;
 import com.xwsd.android.myframework.modules.MainActivity;
 import com.xwsd.android.myframework.modules.MainPresenter;
-
 import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
-
 import io.reactivex.Flowable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;

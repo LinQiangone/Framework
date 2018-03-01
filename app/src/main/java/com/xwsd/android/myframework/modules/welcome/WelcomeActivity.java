@@ -14,17 +14,9 @@ import javax.inject.Inject;
 public class WelcomeActivity extends SimpleActivity {
 
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
-    }
-
-
     @Override
     protected int getLayout() {
-        return 0;
+        return R.layout.activity_welcome;
     }
 
     @Override

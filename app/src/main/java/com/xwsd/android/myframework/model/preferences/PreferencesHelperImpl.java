@@ -33,6 +33,10 @@ public class PreferencesHelperImpl implements PreferencesHelper {
         return mSPrefs.getString(Constants.TOKEN, "");
     }
 
+    /**
+     * 第一次打开app判断引导页
+     * @return
+     */
     @Override
     public boolean getIsFirst() {
         return mSPrefs.getBoolean(Constants.IS_FIRST, true);

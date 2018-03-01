@@ -12,6 +12,6 @@ import io.reactivex.Flowable;
 
 public interface HttpHelper {
 
-    Flowable<JsonObject> getBannerList(String token);
+
 
 }

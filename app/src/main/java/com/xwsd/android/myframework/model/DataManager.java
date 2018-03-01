@@ -1,10 +1,7 @@
 package com.xwsd.android.myframework.model;
 
-import com.google.gson.JsonObject;
-import com.xwsd.android.myframework.model.api.MyApi;
 import com.xwsd.android.myframework.model.http.HttpHelper;
 import com.xwsd.android.myframework.model.preferences.PreferencesHelper;
-import io.reactivex.Flowable;
 
 /**
  * Created by qiang.lin on 017/11/6.
@@ -19,11 +16,10 @@ public class DataManager implements HttpHelper, PreferencesHelper{
         this.mPreferencesHelper = preferencesHelper;
     }
 
-    @Override
-    public Flowable<JsonObject> getBannerList(String token) {
-        return httpHelper.getBannerList(token);
-    }
 
+    /**
+     * @param token
+     */
     @Override
     public void setToken(String token) {
         mPreferencesHelper.setToken(token);
@@ -34,6 +30,10 @@ public class DataManager implements HttpHelper, PreferencesHelper{
         return mPreferencesHelper.getToken();
     }
 
+    /**
+     * 第一次打开app判断引导页
+     * @return
+     */
     @Override
     public boolean getIsFirst() {
         return mPreferencesHelper.getIsFirst();
@@ -43,37 +43,5 @@ public class DataManager implements HttpHelper, PreferencesHelper{
     public void setIsFirst(boolean flag) {
         mPreferencesHelper.setIsFirst(flag);
     }
-
-
-    /**
-     * 数据库查询
-     * @return
-     */
-//    @Override
-//    public List<LoanType> getLoanTypeData() {
-//        return mDBHelper.getLoanTypeData();
-//    }
-
-    /**
-     * sharepreferences查询
-     * @return
-     */
-//    @Override
-//    public String getLastLoginUserName() {
-//        return mPreferencesHelper.getLastLoginUserName();
-//    }
-
-    /**
-     * 网络请求查询
-     * @param uid
-     * @return
-     */
-
-//    @Override
-//    public Flowable<Package<List<Account>>> getAccount(int uid) {
-//        return mHttpHelper.getAccount(uid);
-//    }
-
-
 
 }

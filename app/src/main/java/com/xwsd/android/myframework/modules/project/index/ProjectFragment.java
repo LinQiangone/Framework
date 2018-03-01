@@ -27,10 +27,7 @@ public class ProjectFragment extends BaseLazyFragment<ProjectPresenter> implemen
     }
 
     @Override
-    protected void initEventAndData() {
-
-
-    }
+    protected void initEventAndData() {}
 
     @Override
     protected void initInject() {
@@ -43,4 +40,8 @@ public class ProjectFragment extends BaseLazyFragment<ProjectPresenter> implemen
         ProjectDetailFragment fragment = new ProjectDetailFragment();
         ((MainFragment) getParentFragment()).start(fragment);
     }
+
+
+
+
 }

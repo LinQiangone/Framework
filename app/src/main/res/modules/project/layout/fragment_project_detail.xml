@@ -3,19 +3,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="项目详情"/>
+    <include layout="@layout/view_toolbar"></include>
 
-    <TextView
-        android:id="@+id/tv_seconds"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/DIMEN_20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="发送验证码"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="项目详情"/>
+
+            <TextView
+                android:id="@+id/tv_seconds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/DIMEN_20"
+                android:gravity="center_horizontal"
+                android:text="发送验证码"/>
+
+        </LinearLayout>
+
+        <com.xwsd.android.myframework.view.EmptyLayout
+            android:id="@+id/error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </FrameLayout>
 </RelativeLayout>

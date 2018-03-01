@@ -34,6 +34,16 @@ public class DataManager implements HttpHelper, PreferencesHelper{
         return mPreferencesHelper.getToken();
     }
 
+    @Override
+    public boolean getIsFirst() {
+        return mPreferencesHelper.getIsFirst();
+    }
+
+    @Override
+    public void setIsFirst(boolean flag) {
+        mPreferencesHelper.setIsFirst(flag);
+    }
+
 
     /**
      * 数据库查询

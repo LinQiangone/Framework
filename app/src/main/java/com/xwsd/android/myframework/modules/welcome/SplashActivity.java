@@ -1,6 +1,7 @@
 package com.xwsd.android.myframework.modules.welcome;
 
 import android.content.Intent;
+
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.base.BaseActivity;
@@ -13,6 +14,8 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * Created by qiang.lin on 2018/2/28.
@@ -20,6 +23,8 @@ import io.reactivex.Flowable;
  */
 
 public class SplashActivity extends BaseActivity<MainPresenter> {
+    private Disposable disposable;
+    public CompositeDisposable mCompositeDisposable;
     @Inject
     SchedulerProvider schedulerProvider;
 
@@ -30,7 +35,8 @@ public class SplashActivity extends BaseActivity<MainPresenter> {
 
     @Override
     protected void initEventAndData() {
-        Flowable.timer(2, TimeUnit.SECONDS).observeOn(schedulerProvider.ui()).subscribe(aLong -> {
+        mCompositeDisposable=new CompositeDisposable();
+        disposable = Flowable.timer(2, TimeUnit.SECONDS).observeOn(schedulerProvider.ui()).subscribe(aLong -> {
 //            引导页还是主页
             if (preferencesHelper.getIsFirst()) {
 //                引导页
@@ -44,6 +50,14 @@ public class SplashActivity extends BaseActivity<MainPresenter> {
             }
             AppManager.getInstance().finishActivity(this);
         });
+        mCompositeDisposable.add(disposable);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mCompositeDisposable != null)
+            mCompositeDisposable.clear();
     }
 
     @Override

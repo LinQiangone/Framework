@@ -23,6 +23,7 @@ import com.xwsd.android.myframework.model.api.MyApi;
 import com.xwsd.android.myframework.model.api.XMLApi;
 import com.xwsd.android.myframework.model.schedulers.BaseSchedulerProvider;
 import com.xwsd.android.myframework.model.schedulers.SchedulerProvider;
+import com.xwsd.android.myframework.utils.CommonParamsInterceptor;
 import com.xwsd.android.myframework.utils.LogUtils;
 
 import java.io.File;
@@ -31,6 +32,8 @@ import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Singleton;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.SSLSession;
 
 import dagger.Module;
 import dagger.Provides;
@@ -92,61 +95,21 @@ public class HttpModule {
     @Provides
     OkHttpClient provideClient(OkHttpClient.Builder builder) {
         if (BuildConfig.DEBUG == true) {
-            HttpLoggingInterceptor interceptorLog = new HttpLoggingInterceptor(message -> LogUtils.i("发送的数据", message));
+            HttpLoggingInterceptor interceptorLog = new HttpLoggingInterceptor(message -> LogUtils.i("接收的数据", message));
             interceptorLog.setLevel(HttpLoggingInterceptor.Level.BODY);
-            builder.addInterceptor(interceptorLog);
+//          网络拦截器，打印接收数据，在网络层的最外一层，接收外部数据，执行两次，会重定向
+            builder.addNetworkInterceptor(interceptorLog);
         }
         File cacheFile = new File(Constants.PATH_CACHE);
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 50);
-        Interceptor interceptor = chain -> {
-            Request request = chain.request();
-            long timestamp = System.currentTimeMillis();
-            request = request.newBuilder()
-                    .removeHeader("User-Agent")
-                    .addHeader("User-Agent", Constants.APP_VERSION)
-                    .addHeader("timestamp", timestamp + "")
-                    .build();
-            Response response = chain.proceed(request);
-            return response;
-        };
-//                    request = request.newBuilder()
-//                            .removeHeader("User-Agent")
-//                            .addHeader("User-Agent",Constants.USER_AGENT + Constants.APP_VERSION)
-//                            .removeHeader("Cookie")
-//                            .addHeader("Cookie",session)
-//                            .addHeader("timestamp",timestamp+"")
-//                            .build();
-
-
-//                if (!TextUtils.isEmpty(response.header("Set-Cookie"))) {
-//                    String cookie = response.header("Set-Cookie");
-//                    if (TextUtils.isEmpty(session)) {
-//                        userManager.setSession(cookie.split(";")[0] + ";");
-//                    }
-//                }
-//                if (SystemUtil.isNetworkConnected()) {
-//                    int maxpage = 0;
-//                    response = response.newBuilder()
-//                            .addHeader("Cache-Control", "public,max-page=" + maxpage)
-//                            .removeHeader("Pragma")
-//                            .build();
-//                } else {
-//                    int maxStale = 60 * 60 * 24 * 28;
-//                    response = response.newBuilder()
-//                            .addHeader("Cache-Control", "public,only-if-cached,max-stale=" + maxStale)
-//                            .removeHeader("Pragma")
-//                            .build();
-//                }
-//                return response;
-//            }
-//        };
-
-        builder.addNetworkInterceptor(interceptor);
+//请求拦截器，添加请求公共信息,向外发送数据的第一层，执行一次
+        builder.addInterceptor(new CommonParamsInterceptor());
         builder.cache(cache);
         builder.connectTimeout(20, TimeUnit.SECONDS);
         builder.readTimeout(20, TimeUnit.SECONDS);
         builder.writeTimeout(20, TimeUnit.SECONDS);
         builder.retryOnConnectionFailure(true);
+        builder.hostnameVerifier((hostname, session) -> true);
         return builder.build();
     }
 

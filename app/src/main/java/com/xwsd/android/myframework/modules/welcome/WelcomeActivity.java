@@ -1,11 +1,7 @@
 package com.xwsd.android.myframework.modules.welcome;
 
-import android.os.Bundle;
-
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.base.SimpleActivity;
-
-import javax.inject.Inject;
 
 /**
  * Created by qiang.lin on 2018/2/28.

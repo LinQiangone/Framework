@@ -4,6 +4,11 @@
 
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!--x5webview权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <!-- allowBackup软件安全性问题，如果true，可以调试的用户可以盗取用户相关数据 -->
     <application

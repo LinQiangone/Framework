@@ -6,4 +6,6 @@
     android:fitsSystemWindows="true"
     android:id="@+id/view_main">
 
+
+
 </FrameLayout>

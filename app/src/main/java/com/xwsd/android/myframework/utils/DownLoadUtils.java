@@ -1,5 +1,6 @@
 package com.xwsd.android.myframework.utils;
 
+import android.app.NotificationManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -12,6 +13,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import okhttp3.ResponseBody;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * Created by qiang.lin on 2018/3/6.
@@ -45,11 +48,9 @@ public class DownLoadUtils {
                 outputStream.write(dataSize, 0, length);
 //                做计算
                 totalLength += length;
-                progress = (int) ((totalLength / (float) fileSize) * 100);
+                progress = (int) ((totalLength / (double) fileSize) * 100);
                 Message msg = handler.obtainMessage();
-                if (bundle == null) {
-                    bundle = new Bundle();
-                }
+                if (bundle==null) bundle = new Bundle();
                 bundle.putInt("progress", progress);
                 msg.setData(bundle);
                 msg.what = 1;
@@ -58,7 +59,6 @@ public class DownLoadUtils {
             outputStream.flush();
             return true;
         } catch (IOException e) {
-            LogUtils.e("io错误", e.getMessage());
             return false;
         } finally {
             try {
@@ -67,11 +67,12 @@ public class DownLoadUtils {
                 if (outputStream != null)
                     outputStream.close();
             } catch (Exception e) {
-                LogUtils.e("io错误", e.getMessage());
                 return false;
             }
         }
     }
+
+
 
 
 }

@@ -5,12 +5,19 @@ package com.xwsd.android.myframework.app;
  */
 
 import android.app.Application;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.multidex.MultiDex;
+import android.support.v4.app.NotificationCompat;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.tencent.smtt.sdk.QbSdk;
+import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.di.component.AppComponent;
 import com.xwsd.android.myframework.di.component.DaggerAppComponent;
 import com.xwsd.android.myframework.di.module.AppModule;
@@ -40,7 +47,7 @@ public class MyApp extends Application {
         super.onCreate();
         myApp = this;
         Utils.init(this);
-        setupLeakCanary();
+//        setupLeakCanary();
         initX5WebView();
     }
 
@@ -116,6 +123,43 @@ public class MyApp extends Application {
         if (compositeDisposable!=null)
             compositeDisposable.clear();
     }
+
+
+    public Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    Bundle bundle = msg.getData();
+                    int progress = bundle.getInt("progress");
+//                更新进度
+                    break;
+                case 2:
+                    break;
+            }
+        }
+    };
+
+    public void createNotification(){
+        NotificationManager mNotificationManager = (NotificationManager) MyApp.getInstance().getSystemService(NOTIFICATION_SERVICE);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(MyApp.getInstance());
+        mBuilder.setContentTitle("下载中...")//设置通知栏标题
+                .setContentText("")
+//  .setNumber(number) //设置通知集合的数量
+                .setPriority(Notification.PRIORITY_DEFAULT) //设置该通知优先级
+//  .setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消
+                .setOngoing(false)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
+                .setDefaults(Notification.DEFAULT_VIBRATE)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合
+                //Notification.DEFAULT_ALL  Notification.DEFAULT_SOUND 添加声音 // requires VIBRATE permission
+                .setSmallIcon(R.mipmap.fragment_icon);//设置通知小ICON
+
+
+
+
+    }
+
+
 }
 
 

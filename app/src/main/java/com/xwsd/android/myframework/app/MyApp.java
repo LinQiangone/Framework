@@ -4,10 +4,8 @@ package com.xwsd.android.myframework.app;
  * Created by qiang.lin on 2017/10/20.
  */
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 
 import com.squareup.leakcanary.LeakCanary;
@@ -20,6 +18,9 @@ import com.xwsd.android.myframework.utils.Utils;
 
 import java.util.Stack;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+
 /**
  * Created by qiang.lin on 2017/11/5.
  */
@@ -28,7 +29,7 @@ public class MyApp extends Application {
     private static MyApp myApp;
     public static AppComponent appComponent;
     private RefWatcher refWatcher;
-    private static Stack<Activity> stack;
+    public CompositeDisposable compositeDisposable;
 
     public static synchronized MyApp getInstance() {
         return myApp;
@@ -94,6 +95,26 @@ public class MyApp extends Application {
         };
         //x5内核初始化接口
         QbSdk.initX5Environment(getApplicationContext(), cb);
+    }
+
+    /**
+     * 订阅
+     * @param disposable
+     */
+
+    public void addSubscribe(Disposable disposable) {
+        if (compositeDisposable == null)
+            compositeDisposable = new CompositeDisposable();
+        compositeDisposable.add(disposable);
+
+    }
+
+    /**
+     * 解绑
+     */
+    public void unSubscribe(){
+        if (compositeDisposable!=null)
+            compositeDisposable.clear();
     }
 }
 

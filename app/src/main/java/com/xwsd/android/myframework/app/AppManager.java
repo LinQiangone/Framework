@@ -3,7 +3,12 @@ package com.xwsd.android.myframework.app;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.NonNull;
+
+import com.xwsd.android.myframework.utils.LogUtils;
 
 import java.util.Stack;
 
@@ -13,6 +18,25 @@ import java.util.Stack;
 public class AppManager {
     private static Stack<Activity> stack;
     private static AppManager appManager;
+
+
+    public Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    Bundle bundle = msg.getData();
+                    int progress = bundle.getInt("progress");
+                    LogUtils.i("下载-----",progress);
+//                更新进度
+                    break;
+                case 2:
+                    break;
+            }
+        }
+    };
+
 
     private AppManager() {
     }

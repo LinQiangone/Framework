@@ -9,6 +9,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Flowable;
+import okhttp3.ResponseBody;
 
 /**
  * Created by qiang.lin on 2017/11/6.
@@ -28,6 +29,8 @@ public class RetrofitHelper implements HttpHelper{
     }
 
 
-
-
+    @Override
+    public Flowable<ResponseBody> download(String downloadUrl) {
+        return myApi.download(downloadUrl);
+    }
 }

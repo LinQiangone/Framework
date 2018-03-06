@@ -64,8 +64,6 @@ android {
     }
 
 
-
-
 }
 
 //热修复
@@ -148,5 +146,6 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     //tab控件
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
 
 }

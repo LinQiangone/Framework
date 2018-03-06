@@ -3,6 +3,9 @@ package com.xwsd.android.myframework.model;
 import com.xwsd.android.myframework.model.http.HttpHelper;
 import com.xwsd.android.myframework.model.preferences.PreferencesHelper;
 
+import io.reactivex.Flowable;
+import okhttp3.ResponseBody;
+
 /**
  * Created by qiang.lin on 017/11/6.
  */
@@ -44,4 +47,8 @@ public class DataManager implements HttpHelper, PreferencesHelper{
         mPreferencesHelper.setIsFirst(flag);
     }
 
+    @Override
+    public Flowable<ResponseBody> download(String downloadUrl) {
+        return httpHelper.download(downloadUrl);
+    }
 }

@@ -7,6 +7,7 @@ import com.xwsd.android.myframework.di.scope.FragmentScope;
 import com.xwsd.android.myframework.modules.MainFragment;
 import com.xwsd.android.myframework.modules.discover.index.DiscoverFragment;
 import com.xwsd.android.myframework.modules.home.index.HomeFragment;
+import com.xwsd.android.myframework.modules.myself.download.DownLoadFragment;
 import com.xwsd.android.myframework.modules.myself.index.MyselfFragment;
 import com.xwsd.android.myframework.modules.others.webview.BaseWebViewFragment;
 import com.xwsd.android.myframework.modules.project.index.ProjectFragment;
@@ -72,4 +73,10 @@ public interface FragmentComponent {
      * @param fragment
      */
     void inject(BaseWebViewFragment fragment);
+
+    /**
+     * 文件下载功能
+     * @param fragment
+     */
+    void inject(DownLoadFragment fragment);
 }

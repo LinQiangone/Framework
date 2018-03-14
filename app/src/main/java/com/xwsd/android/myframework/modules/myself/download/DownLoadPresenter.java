@@ -1,12 +1,14 @@
 package com.xwsd.android.myframework.modules.myself.download;
 
+import android.app.Activity;
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.app.MyApp;
 import com.xwsd.android.myframework.base.RxPresenter;
 import com.xwsd.android.myframework.model.DataManager;
 import com.xwsd.android.myframework.model.schedulers.BaseSchedulerProvider;
 import com.xwsd.android.myframework.model.schedulers.SchedulerProvider;
-import com.xwsd.android.myframework.utils.DownLoadUtils;
+import com.xwsd.android.myframework.modules.MainActivity;
+import com.xwsd.android.myframework.utils.DownLoadCallBack;
 import com.xwsd.android.myframework.utils.LogUtils;
 import javax.inject.Inject;
 import io.reactivex.disposables.Disposable;
@@ -30,7 +32,7 @@ public class DownLoadPresenter extends RxPresenter<DownLoadContract.View> implem
 
 
     @Override
-    public void download(String downloadUrl) {
+    public void download(String downloadUrl, Activity activity) {
         LogUtils.i("开始");
         disposable = dataManager.download(downloadUrl)
 //             发送事件线程
@@ -38,15 +40,21 @@ public class DownLoadPresenter extends RxPresenter<DownLoadContract.View> implem
 //             观察者线程
                 .observeOn(schedulerProvider.io())
                 .map(responseBody -> responseBody)
-                .doOnNext(responseBody -> flag = DownLoadUtils.saveFile(responseBody, MyApp.getInstance().handler))
+                .doOnNext(responseBody -> {
+                    DownLoadCallBack downLoadCallBack = new DownLoadCallBack(responseBody, AppManager.getInstance().findActivity(MainActivity.class),
+                            progress -> {
+//                          ui线程
+
+                            });
+                })
                 .observeOn(schedulerProvider.ui())
                 .subscribe(responseBody -> {
 //                        onNext
-                    if (flag) {
-                        LogUtils.i("下载成功");
-                    } else {
-                        LogUtils.i("下载失败");
-                    }
+//                    if (flag) {
+//                        LogUtils.i("下载成功");
+//                    } else {
+//                        LogUtils.i("下载失败");
+//                    }
                     MyApp.getInstance().unSubscribe();
                 }, throwable -> {
 //onError

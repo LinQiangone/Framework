@@ -1,5 +1,7 @@
 package com.xwsd.android.myframework.modules.myself.download;
 
+import android.app.Activity;
+
 import com.xwsd.android.myframework.base.BasePresenter;
 import com.xwsd.android.myframework.base.BaseView;
 import com.xwsd.android.myframework.modules.myself.index.MyselfContract;
@@ -13,7 +15,7 @@ public interface DownLoadContract {
 
     }
     interface Presenter extends BasePresenter<View> {
-        void download(String downloadUrl);
+        void download(String downloadUrl, Activity activity);
 
     }
 }

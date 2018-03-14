@@ -125,21 +125,6 @@ public class MyApp extends Application {
     }
 
 
-    public Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case 1:
-                    Bundle bundle = msg.getData();
-                    int progress = bundle.getInt("progress");
-//                更新进度
-                    break;
-                case 2:
-                    break;
-            }
-        }
-    };
 
     public void createNotification(){
         NotificationManager mNotificationManager = (NotificationManager) MyApp.getInstance().getSystemService(NOTIFICATION_SERVICE);

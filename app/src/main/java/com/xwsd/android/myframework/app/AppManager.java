@@ -89,6 +89,20 @@ public class AppManager {
     }
 
     /**
+     * 找到指定 Activity
+     *
+     * @param clz Activity 类
+     */
+    public Activity findActivity(@NonNull final Class<?> clz) {
+        for (Activity activity : stack) {
+            if (activity.getClass().equals(clz)) {
+               return activity;
+            }
+        }
+        return null;
+    }
+
+    /**
      * 退出应用程序
      */
     public void appExit(Context context) {

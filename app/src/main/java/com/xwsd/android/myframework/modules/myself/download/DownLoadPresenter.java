@@ -1,6 +1,11 @@
 package com.xwsd.android.myframework.modules.myself.download;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.os.Looper;
+import android.util.Log;
+import android.util.SparseArray;
+
 import com.xwsd.android.myframework.app.AppManager;
 import com.xwsd.android.myframework.app.MyApp;
 import com.xwsd.android.myframework.base.RxPresenter;
@@ -10,9 +15,11 @@ import com.xwsd.android.myframework.model.schedulers.SchedulerProvider;
 import com.xwsd.android.myframework.modules.MainActivity;
 import com.xwsd.android.myframework.utils.DownLoadCallBack;
 import com.xwsd.android.myframework.utils.LogUtils;
+
+import java.util.HashMap;
+
 import javax.inject.Inject;
 import io.reactivex.disposables.Disposable;
-
 /**
  * Created by qiang.lin on 2018/3/5.
  */
@@ -21,13 +28,14 @@ public class DownLoadPresenter extends RxPresenter<DownLoadContract.View> implem
     private DataManager dataManager;
     private Disposable disposable;
     private BaseSchedulerProvider schedulerProvider;
-    private boolean flag;
+
 
 
     @Inject
     public DownLoadPresenter(DataManager dataManager, SchedulerProvider schedulerProvider) {
         this.dataManager = dataManager;
         this.schedulerProvider = schedulerProvider;
+
     }
 
 
@@ -41,6 +49,8 @@ public class DownLoadPresenter extends RxPresenter<DownLoadContract.View> implem
                 .observeOn(schedulerProvider.io())
                 .map(responseBody -> responseBody)
                 .doOnNext(responseBody -> {
+                    boolean flag= (Looper.getMainLooper().getThread()==Thread.currentThread());
+                    Log.i("发送111111122222222222",flag+"");
                     DownLoadCallBack downLoadCallBack = new DownLoadCallBack(responseBody, AppManager.getInstance().findActivity(MainActivity.class),
                             progress -> {
 //                          ui线程

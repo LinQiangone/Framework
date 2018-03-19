@@ -52,7 +52,7 @@ public class DownLoadFragment extends BaseFragment<DownLoadPresenter> implements
 
     @NeedsPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
     void applyDownloadPermission() {
-        mPresenter.download("http://xykd.taihaifintech.com//Uploads/Apk/20180305/5a9cf5c7330c4.apk");
+        mPresenter.download("http://xykd.taihaifintech.com//Uploads/Apk/20180305/5a9cf5c7330c4.apk",mActivity);
     }
 
 

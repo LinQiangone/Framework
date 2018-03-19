@@ -1,5 +1,8 @@
 package com.xwsd.android.myframework.modules.home.index;
 
+import android.app.ProgressDialog;
+import android.view.Window;
+
 import com.xwsd.android.myframework.R;
 import com.xwsd.android.myframework.base.BaseLazyFragment;
 
@@ -11,6 +14,8 @@ import butterknife.OnClick;
  */
 
 public class HomeFragment extends BaseLazyFragment<HomePresenter> implements HomeContract.View {
+
+
 
     @Override
     protected void initInject() {

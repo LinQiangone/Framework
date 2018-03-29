@@ -1,6 +1,9 @@
 package com.xwsd.android.myframework.app;
 
+import android.content.Context;
+
 import java.io.File;
+import java.util.Collections;
 
 /**
  * Created by qiang.lin on 2017/11/6.
@@ -27,6 +30,7 @@ public class Constants {
     public static final String APP_VERSION = "1.0";
     public static final String TOKEN="token";
     public static final String IS_FIRST="isFirst";
+
 
 
 }

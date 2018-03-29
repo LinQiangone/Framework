@@ -124,7 +124,7 @@ dependencies {
     //dagger
     compile "com.google.dagger:dagger:$rootProject.ext.daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
-    provided 'org.glassfish:javax.annotation:10.0-b28'
+//    provided 'org.glassfish:javax.annotation:10.0-b28'
     //腾讯bugly
     compile 'com.tencent.bugly:crashreport:latest.release'
     compile 'com.tencent.bugly:nativecrashreport:latest.release'

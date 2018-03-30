@@ -1,5 +1,7 @@
 package com.xwsd.android.myframework.base;
 
+import android.widget.Scroller;
+
 import com.xwsd.android.myframework.app.MyApp;
 import com.xwsd.android.myframework.di.component.ActivityComponent;
 import com.xwsd.android.myframework.di.component.DaggerActivityComponent;

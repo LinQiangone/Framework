@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 
 android {
@@ -7,7 +9,7 @@ android {
         applicationId "com.xwsd.android.myframework"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode getReleaseDate()
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
@@ -16,6 +18,7 @@ android {
         }
 
     }
+
     buildTypes {
         release {
             buildConfigField "boolean", "LOG_DEBUG", "false" //不显示log
@@ -30,7 +33,6 @@ android {
             zipAlignEnabled true     //Zipalign优化
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
 
 
     }
@@ -76,7 +78,6 @@ android {
         }
     }
 
-
 }
 
 //热修复
@@ -98,6 +99,14 @@ buildscript {
     }
 
 }
+
+def static getReleaseDate() {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd")
+    String date = sdf.format(new Date())
+    return Integer.parseInt(date)
+}
+
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
 //    androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion", {

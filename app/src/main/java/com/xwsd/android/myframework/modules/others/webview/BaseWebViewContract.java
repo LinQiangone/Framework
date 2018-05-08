@@ -2,7 +2,6 @@ package com.xwsd.android.myframework.modules.others.webview;
 
 import com.xwsd.android.myframework.base.BasePresenter;
 import com.xwsd.android.myframework.base.BaseView;
-import com.xwsd.android.myframework.modules.project.index.ProjectContract;
 
 /**
  * Created by qiang.lin on 2018/3/5.
